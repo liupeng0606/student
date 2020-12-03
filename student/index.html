@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    title: {
+        text: 'Graph'
+    },
+    tooltip: {},
+    animationDurationUpdate: 1500,
+    animationEasingUpdate: 'quinticInOut',
+    series: [
+        {
+            type: 'graph',
+            layout: 'none',
+            symbolSize: 50,
+            roam: true,
+            label: {
+                show: true
+            },
+            edgeSymbol: ['circle', 'arrow'],
+            edgeSymbolSize: [4, 10],
+            edgeLabel: {
+                fontSize: 20
+            },
+            data: [{
+                name: '三角形',
+                x: 80,
+                y: 100
+            }, {
+                name: '四边形',
+                x: 90,
+                y: 100
+            }, {
+                name: '有理数',
+                x: 100,
+                y: 100
+            }, {
+                name: '方程',
+                x: 110,
+                y: 100
+            },
+                {
+                    name: '无理数',
+                    x: 80,
+                    y: 120
+                }, {
+                    name: '不等式',
+                    x: 90,
+                    y: 120
+                }, {
+                    name: '勾股定理',
+                    x: 100,
+                    y: 120
+                }, {
+                    name: '一次函数',
+                    x: 110,
+                    y: 120
+                },
+                {
+                    name: '二元一次方程',
+                    x: 80,
+                    y: 110
+                }, {
+                    name: '图形',
+                    x: 90,
+                    y: 110
+                }, {
+                    name: '圆',
+                    x: 100,
+                    y: 110
+                }, {
+                    name: '圆柱',
+                    x: 110,
+                    y: 110
+                }
+            ],
+            // links: [],
+            links: [ {
+                source: '三角形',
+                target: '图形',
+                lineStyle: {
+                    curveness: 0.2
+                }
+            }, {
+                source: '圆',
+                target: '图形',
+                lineStyle: {
+                    curveness: 0.2
+                }
+            }, {
+                source: '圆柱',
+                target: '图形',
+                lineStyle: {
+                    curveness: 0.2
+                }
+            },
+                {
+                    source: '一次函数',
+                    target: '方程',
+                    lineStyle: {
+                        curveness: 0.2
+                    }
+                }, {
+                    source: '二元一次方程',
+                    target: '方程'
+                },
+                {
+                source: '有理数',
+                target: '无理数'
+            }],
+            lineStyle: {
+                opacity: 0.9,
+                width: 2,
+                curveness: 0.6
+            }
+        }
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
